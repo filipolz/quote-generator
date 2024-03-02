@@ -50,13 +50,26 @@ let data = [];
  * @property {HTMLElement} twitterBtn - The button that triggers the sharing of the current quote on Twitter.
  */
 const elements = {
-    quoteContainer: getElement("quote-container"),
+    mainContainer: getElement("main-container"),
     quote: getElement("quote"),
     author : getElement("author"),
     newQuoteBtn :  getElement("new-quote"),
     twitterBtn : getElement("twitter"),
+    loader : getElement("loader"),
 }
 
+
+
+
+const loading = () => {
+    elements.loader.hidden = false;
+    elements.mainContainer.hidden = true;
+}
+
+const completeLoading = () => {
+    elements.mainContainer.hidden = false;
+    elements.loader.hidden = true;
+}
 
 
 /**
@@ -96,8 +109,10 @@ const setQuote = ({ author: authorText = "Unknown", text: quoteText }) => {
  * Uses the setQuote function to set the quote and author text in the DOM.
  */
 const newQuote = () => {
+    loading();
     (!data.length) && logError("No quotes to display");
     setQuote(data[Math.floor(Math.random() * data.length)]);
+    completeLoading();
 }
 
 
@@ -110,6 +125,7 @@ const newQuote = () => {
  * @async
  */
 async function getQuotes() {
+    loading();
     const apiURL = "https://type.fit/api/quotes";
 
     try {

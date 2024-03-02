@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-<main class="main-container" aria-label="Quote Generator">
+<main class="main-container" id="main-container" aria-label="Quote Generator">
     <section aria-labelledby="quote-text" class="quote-container" id="quote-container">
         <blockquote class="quote-text" id="quote-text" aria-label="Quote Text">
             <i class="fas fa-quote-left" aria-hidden="true"></i>
@@ -27,11 +27,11 @@
             <button id="new-quote" aria-label="Load a new quote">New quote</button>
         </div>
     </section>
-
     <footer class="footer" aria-label="Footer">
         Made with <span role="img" aria-label="love">💟</span> by pious.dev
     </footer>
 </main>
+<div id="loader" class="loader" aria-hidden="true"></div>
 <script src="quote.js"></script>
 <script src="script.js"></script>
 </body>
