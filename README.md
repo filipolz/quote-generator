@@ -47,7 +47,7 @@ Open the `index.html` file in your browser, or use a live server extension if yo
 Contributions are welcome. Feel free to open a pull request or use the Issues tab to report any bugs.
 
 ## Authors
-- [Pious.dev on Github](https://github.com/piousdev)
+- [piousdev on Github](https://github.com/piousdev)
 - [@piousalphadev on X](https://twitter.com/piousalphadev)
 
 ## Acknowledgements

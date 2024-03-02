@@ -20,19 +20,20 @@ body {
     justify-content: center;
 }
 
-.main-container {
+main.main-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-inline: 1.25rem;
 }
 
-.footer {
+footer.footer {
     margin-top: 1.25rem;
     align-self: flex-end;
 }
 
-.quote-container {
+section#quote-container.quote-container {
     width: auto;
     max-width: 900px;
     padding: 1.25rem 1.875rem;
@@ -43,7 +44,7 @@ body {
     box-shadow: 0.625rem 3.563rem 6.375rem 0.938rem rgba(168,168,168,0.76);
 }
 
-.quote-text {
+blockquote#quote-text.quote-text {
     display: flex;
     gap: 2rem;
     text-align: left;
@@ -51,22 +52,24 @@ body {
     font-size: clamp(2rem, 1.8913rem + 0.6957vw, 2.5rem);
 }
 
+
+/* Add by JavaScript based on a condition */
 .long-quote {
     font-size: clamp(0.7rem, 0.6348rem + 0.4174vw, 1rem);
 }
 
-.fa-quote-left {
+i.fas.fa-quote-left {
     font-size: clamp(4rem, 3.5652rem + 2.7826vw, 6rem);
 }
 
-.quote-author {
+p#author.quote-author {
     margin-top: 0.9375rem; ;
     font-size: clamp(1rem, 0.8913rem + 0.6957vw, 1.5rem);
     font-weight: 400;
     font-style: italic;
 }
 
-.button-container {
+div.button-container {
     margin-top: 0.9375rem;;
     display: flex;
     justify-content: space-between;
@@ -96,7 +99,7 @@ button:active {
     box-shadow: 0 0.0625rem rgba(255, 255, 255, 0.65);
 }
 
-.twitter-button:hover {
+button#twitter.twitter-button:hover {
     color: #38a1f3;
 }
 
