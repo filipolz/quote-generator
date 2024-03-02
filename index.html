@@ -6,32 +6,33 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <div>
-        <div class="quote-container" id="quote-container">
-            <div class="quote-text">
-                <i class="fas fa-quote-left"></i>
-                <h1 id="quote"></h1>
-            </div>
-            <div class="quote-author">
-                <span id="author"></span>
-            </div>
-            <div class="button-container">
-                <button class="twitter-button" id="twitter" title="Tweet this">
-                    <i class="fab fa-twitter"></i>
-                </button>
-                <button id="new-quote">New quote</button>
-            </div>
+<main class="main-container" aria-label="Quote Generator">
+    <section aria-labelledby="quote-text" class="quote-container" id="quote-container">
+        <blockquote class="quote-text" id="quote-text" aria-label="Quote Text">
+            <i class="fas fa-quote-left" aria-hidden="true"></i>
+            <p id="quote">I will put you under the jail.</p>
+        </blockquote>
+        <p class="quote-author" id="author" aria-label="Author Name">Hank Schrader</p>
+        <div class="button-container">
+            <button class="twitter-button" id="twitter" aria-label="Tweet this quote">
+                <i class="fab fa-twitter" aria-hidden="true"></i> Tweet this quote
+            </button>
+            <button id="new-quote" aria-label="Load a new quote">New quote</button>
         </div>
+    </section>
 
-        <div>
-            Made with 💟 by pious.dev
-        </div>
-    </div>
-    <script src="quote.js"></script>
-    <script src="script.js"></script>
+    <footer class="footer" aria-label="Footer">
+        Made with <span role="img" aria-label="love">💟</span> by pious.dev
+    </footer>
+</main>
+<script src="quote.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

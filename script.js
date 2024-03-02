@@ -1,42 +1,34 @@
-const getElement = (identifier) => {
-    const element = document.getElementById(identifier);
-    !element && console.error(`Element with id: ${identifier} not found`);
-    return element;
+const getElement = (id) => document.getElementById(id);
+const logError = (message) => console.error(message);
+const assignEventListener = (element, event, callback) =>
+    element ? element.addEventListener(event, callback) : logError(`${element} not found for event: ${event}`);
+
+let data = [];
+const elements = {
+    quoteContainer: getElement("quote-container"),
+    quote: getElement("quote"),
+    author : getElement("author"),
+    newQuoteBtn :  getElement("new-quote"),
+    twitterBtn : getElement("twitter"),
 }
 
 const shareQuote = () => {
-    if (!quote.textContent || !author.textContent) {
-        console.error("No quote or author to share");
-        return;
-    }
-    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(`"${quote.textContent}" - ${author.textContent}`)}`;
+    (!elements.quote.textContent || !elements.author.textContent) && logError("No quote or author to share");
+
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(`"${elements.quote.textContent}" - ${elements.author.textContent}`)}`;
     window.open(twitterUrl, '_blank');
 }
 
-
-let data = [];
-const quoteContainer = getElement("quote-container");
-const quote = getElement("quote");
-const author = getElement("author");
-const newQuoteBtn = getElement("new-quote");
-const twitterBtn = getElement("twitter");
-
-
-function newQuote() {
-    (data.length === 0) && console.error("No quotes available");
-
-    const quotes = data[Math.floor(Math.random() * data.length)];
-    const authorText = quotes.author;
-    const quoteText = quotes.text;
+const setQuote = ({ author: authorText = "Unknown", text: quoteText }) => {
+    const { quote, author } = elements;
     quote.textContent = quoteText;
-    author.textContent = authorText ? authorText : "Unknown";
-
+    author.textContent = ` - ${authorText}`;
     quote.classList.toggle("long-quote", quoteText.length > 120);
 }
 
-function localQuote() {
-    const localQuoteData = localQuotes[Math.floor(Math.random() * localQuotes.length)];
-    console.log(localQuoteData);
+const newQuote = () => {
+    (!data.length) && logError("No quotes to display");
+    setQuote(data[Math.floor(Math.random() * data.length)]);
 }
 
 async function getQuotes() {
@@ -46,6 +38,8 @@ async function getQuotes() {
         const response = await fetch(apiURL);
         const apiQuotes = await response.json();
 
+        // not need to define localQuotes as it's already defined in the data array in quotes.js
+        // which shares the same JavaScript execution context and global scope as this source file.
         data = [...localQuotes, ...apiQuotes];
         newQuote();
     } catch (error) {
@@ -55,8 +49,7 @@ async function getQuotes() {
     }
 }
 
-newQuoteBtn.addEventListener("click", newQuote);
-twitterBtn.addEventListener('click', shareQuote);
+assignEventListener(elements.newQuoteBtn, "click", newQuote);
+assignEventListener(elements.twitterBtn, "click", shareQuote);
 
 getQuotes();
-localQuote();
