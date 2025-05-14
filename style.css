@@ -39,7 +39,7 @@ section#quote-container.quote-container {
     max-width: 900px;
     padding: 1.25rem 1.875rem;
     border-radius: 0.625rem;
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255);
     -webkit-box-shadow: 0.625rem 3.563rem 6.375rem 0.938rem rgba(168,168,168,0.76);
     -moz-box-shadow: 0.625rem 3.563rem 6.375rem 0.938rem rgba(168,168,168,0.76);
     box-shadow: 0.625rem 3.563rem 6.375rem 0.938rem rgba(168,168,168,0.76);
@@ -65,8 +65,8 @@ i.fas.fa-quote-left {
 
 p#author.quote-author {
     margin-top: 0.9375rem; ;
-    font-size: clamp(1rem, 0.8913rem + 0.6957vw, 1.5rem);
-    font-weight: 400;
+    font-size: clamp(2rem, 0.8913rem + 0.6957vw, 1.5rem);
+    font-weight: 700;
     font-style: italic;
 }
 
@@ -80,6 +80,7 @@ div.button-container {
 button {
     cursor: pointer;
     font-size: clamp(0.9rem, 0.8348rem + 0.4174vw, 1.2rem);
+    font-weight: 600;
     height: 2.5rem;
     border: none;
     border-radius: 0.625rem;;
